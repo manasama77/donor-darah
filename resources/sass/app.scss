@@ -1,12 +1,11 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url("https://fonts.bunny.net/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import 'bootstrap/scss/bootstrap';
-
+@import "bootstrap/scss/bootstrap";
 
 .fade-out {
     animation: fadeOut 2s linear;
@@ -15,9 +14,41 @@
 
 @keyframes fadeOut {
     0% {
-        opacity:1;
+        opacity: 1;
     }
     100% {
-        opacity:0;
+        opacity: 0;
+    }
+}
+
+body#poundfit {
+    background-color: #1467b0;
+
+    .logo-poundfit {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+#table {
+    &.table-dark {
+        thead > tr > th {
+            background-color: #212529 !important;
+            vertical-align: middle !important;
+        }
+
+        tbody > tr > td {
+            background-color: #f6f6f6 !important;
+            color: #212529 !important;
+            vertical-align: middle !important;
+        }
     }
 }

@@ -1,0 +1,19 @@
+{
+    "name": "Poundfit with Bnetfit",
+    "short_name": "Poundfit with Bnetfit",
+    "icons": [
+        {
+            "src": "/poundfit/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/poundfit/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#1467b0",
+    "background_color": "#1467b0",
+    "display": "standalone"
+}

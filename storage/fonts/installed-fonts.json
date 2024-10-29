@@ -1,0 +1,9 @@
+{
+    "poppins": {
+        "normal": "D:\\laragon\\www\\poundfit\\storage\\fonts\/poppins_normal_0479b61f212e5174d8428e4e4ccfca94",
+        "500": "D:\\laragon\\www\\poundfit\\storage\\fonts\/poppins_500_a5f0eff4c6cdf67d7ce70d2ecd47226d",
+        "600": "D:\\laragon\\www\\poundfit\\storage\\fonts\/poppins_600_e2cb5fb67fedaf0b75b90fe7c1670971",
+        "bold": "D:\\laragon\\www\\poundfit\\storage\\fonts\/poppins_bold_2c178b64bdbb20f64568ec91e6b1f43e",
+        "900": "poppins_900_4581fe8ad31df4465211916b96c24745"
+    }
+}
