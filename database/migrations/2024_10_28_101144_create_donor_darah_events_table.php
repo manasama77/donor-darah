@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('poundfit_events', function (Blueprint $table) {
+        Schema::create('donor_darah_events', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Location::class);
             $table->dateTime('event_datetime');

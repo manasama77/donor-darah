@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DonorDarahEvent;
 use App\Models\Location;
-use App\Models\PoundfitEvent;
 use Illuminate\Http\Request;
 
-class PoundfitEventController extends Controller
+class DonorDarahEventController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $poundfit_events = PoundfitEvent::with([
+        $donor_darah_events = DonorDarahEvent::with([
             'location',
         ])->get();
 
         $data = [
-            'poundfit_events' => $poundfit_events,
+            'donor_darah_events' => $donor_darah_events,
         ];
 
-        return view('poundfit_events', $data);
+        return view('donor_darah_events', $data);
     }
 
     /**
@@ -35,7 +35,7 @@ class PoundfitEventController extends Controller
             'locations' => $locations,
         ];
 
-        return view('poundfit_events_create', $data);
+        return view('donor_darah_events_create', $data);
     }
 
     /**
@@ -65,26 +65,26 @@ class PoundfitEventController extends Controller
             'registrant_limit.integer'  => 'Registrant limit is invalid.',
         ]);
 
-        $poundfit_event                 = new PoundfitEvent();
-        $poundfit_event->location_id    = $request->location_id;
-        $poundfit_event->event_datetime = $request->event_date . ' ' . $request->event_time;
-        $poundfit_event->pic_whatsapp   = $request->pic_whatsapp;
-        $poundfit_event->is_published   = $request->is_published;
+        $donor_darah_event                 = new DonorDarahEvent();
+        $donor_darah_event->location_id    = $request->location_id;
+        $donor_darah_event->event_datetime = $request->event_date . ' ' . $request->event_time;
+        $donor_darah_event->pic_whatsapp   = $request->pic_whatsapp;
+        $donor_darah_event->is_published   = $request->is_published;
 
-        if ($poundfit_event->is_published) {
-            PoundfitEvent::where('is_published', true)->update(['is_published' => false]);
+        if ($donor_darah_event->is_published) {
+            DonorDarahEvent::where('is_published', true)->update(['is_published' => false]);
         }
 
-        $poundfit_event->registrant_limit = $request->registrant_limit;
-        $poundfit_event->save();
+        $donor_darah_event->registrant_limit = $request->registrant_limit;
+        $donor_darah_event->save();
 
-        return redirect()->route('poundfit-events')->with('success', 'Poundfit Event created successfully.');
+        return redirect()->route('donor-darah-events')->with('success', 'Donor Darah Event created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(PoundfitEvent $poundfitEvent)
+    public function show(DonorDarahEvent $donorDarahEvent)
     {
         //
     }
@@ -92,22 +92,22 @@ class PoundfitEventController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PoundfitEvent $poundfitEvent)
+    public function edit(DonorDarahEvent $donorDarahEvent)
     {
         $locations = Location::get();
 
         $data = [
             'locations'      => $locations,
-            'poundfit_event' => $poundfitEvent,
+            'donor_darah_event' => $donorDarahEvent,
         ];
 
-        return view('poundfit_events_edit', $data);
+        return view('donor_darah_events_edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PoundfitEvent $poundfitEvent)
+    public function update(Request $request, DonorDarahEvent $donorDarahEvent)
     {
         $request->validate([
             'location_id'      => ['required', 'integer', 'exists:locations,id'],
@@ -131,18 +131,18 @@ class PoundfitEventController extends Controller
             'registrant_limit.integer'  => 'Registrant limit is invalid.',
         ]);
 
-        $poundfitEvent->update($request->all());
+        $donorDarahEvent->update($request->all());
 
-        return redirect()->route('poundfit-events')->with('success', 'Poundfit Event updated successfully.');
+        return redirect()->route('donor-darah-events')->with('success', 'Donor Darah Event updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PoundfitEvent $poundfitEvent)
+    public function destroy(DonorDarahEvent $donorDarahEvent)
     {
-        $poundfitEvent->delete();
+        $donorDarahEvent->delete();
 
-        return redirect()->route('poundfit-events')->with('success', 'Poundfit Event deleted successfully.');
+        return redirect()->route('donor-darah-events')->with('success', 'Donor Darah Event deleted successfully.');
     }
 }

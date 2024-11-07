@@ -4,8 +4,7 @@
     <div class="container">
         <div class="row mb-3">
             <div class="col-12 d-flex justify-content-center my-3">
-                <img class="logo-poundfit" src="{{ asset('img/poundfit-with-bnetfit-logo.png') }}"
-                    alt="Poundfit with Bnetfit" />
+                <img class="logo-donor-darah" src="{{ asset('img/logo-jlm.png') }}" alt="Donor Darah with JLM" />
             </div>
         </div>
 

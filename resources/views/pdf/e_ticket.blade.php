@@ -44,7 +44,7 @@
     }
 
     body {
-        background: url("{{ public_path('img/etiket_bg_vertical.webp') }}") center no-repeat;
+        background: url("{{ public_path('img/background-mobile.png') }}") center no-repeat;
         background-size: cover;
         font-family: 'Poppins', sans-serif;
     }
@@ -74,7 +74,7 @@
         transform: translateX(-50%);
         font-size: 14px;
         z-index: 1;
-        color: #fff;
+        color: #001849;
         font-weight: 500;
         margin: 0;
         padding: 0;
@@ -88,7 +88,7 @@
         left: 50%;
         transform: translateX(-50%);
         font-size: 15px;
-        color: #fff;
+        color: #001849;
         font-weight: 700;
         z-index: 1;
         margin: 0;
@@ -115,7 +115,7 @@
         left: 0%;
         font-size: 14px;
         z-index: 1;
-        color: #fff;
+        color: #001849;
         font-weight: 500;
         margin: 0;
         padding: 0;
@@ -128,7 +128,7 @@
         left: 0%;
         font-size: 15px;
         z-index: 1;
-        color: #fff;
+        color: #001849;
         font-weight: 700;
         margin: 0;
         padding: 0;
@@ -151,7 +151,7 @@
         left: 0%;
         font-size: 14px;
         z-index: 1;
-        color: #fff;
+        color: #001849;
         font-weight: 500;
         margin: 0;
         padding: 0;
@@ -164,7 +164,7 @@
         left: 0%;
         font-size: 15px;
         z-index: 1;
-        color: #fff;
+        color: #001849;
         font-weight: 700;
         margin: 0;
         padding: 0;
@@ -187,7 +187,7 @@
         left: 0;
         font-size: 14px;
         z-index: 1;
-        color: #fff;
+        color: #001849;
         font-weight: 500;
         margin: 0;
         padding: 0;
@@ -201,7 +201,7 @@
         left: 0;
         font-size: 15px;
         z-index: 1;
-        color: #fff;
+        color: #001849;
         font-weight: 700;
         margin: 0;
         padding: 0;
@@ -238,7 +238,7 @@
         transform: translateX(-50%);
         font-size: 16px;
         z-index: 1;
-        color: #000;
+        color: #001849;
         font-weight: 700;
         letter-spacing: 5px;
         margin: 0;
@@ -249,10 +249,10 @@
         bottom: 7;
         left: 50%;
         transform: translateX(-57%);
-        background-color: white;
+        background-color: #fff;
         width: 100px;
         height: 110px;
-        border: 1px solid rgb(0, 0, 0);
+        border: 1px solid #001849;
         border-radius: 5%;
         padding: 7px;
     }
@@ -271,20 +271,21 @@
     }
 
     .img-wrapper .img-logo-jlm {
-        width: 150px;
+        width: 120px;
+        margin-top: 0px;
     }
 
-    .img-wrapper .img-logo {
-        width: 180px;
-        margin-top: -20px;
+    .img-wrapper .img-logo-dondar {
+        width: 150px;
     }
 </style>
 
 <body style="position: relative;">
     <div class="container">
         <div class="img-wrapper">
-            <img src="{{ public_path('img/poundfit-with-bnetfit-logo.png') }}" alt="Logo Poundfit with Bnetfit"
-                class="img-logo" />
+            <img src="{{ public_path('img/logo-jlm.png') }}" alt="Logo JLM" class="img-logo-jlm" />
+            <img src="{{ public_path('img/logo-donor-darah.png') }}" alt="Logo Donor Darah with JLM"
+                class="img-logo-dondar" />
         </div>
 
         <div class="info-wrapper">

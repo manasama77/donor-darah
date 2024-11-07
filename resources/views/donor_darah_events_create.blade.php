@@ -3,8 +3,8 @@
 @section('content')
     <div class="container">
         <div class="d-flex justify-content-start justify-content-md-between mb-3">
-            <h3 class="text-center"><strong>{{ __('Create New Poundfit Event') }}</strong></h3>
-            <a href="{{ route('poundfit-events') }}" class="btn btn-dark mb-0">
+            <h3 class="text-center"><strong>{{ __('Create New Donor Darah Event') }}</strong></h3>
+            <a href="{{ route('donor-darah-events') }}" class="btn btn-dark mb-0">
                 <i class="fas fa-backward"></i>
                 Back
             </a>
@@ -16,7 +16,7 @@
                 <div class="card">
                     <div class="card-header">{{ __('Form') }}</div>
                     <div class="card-body">
-                        <form action="{{ route('poundfit-events.store') }}" method="POST">
+                        <form action="{{ route('donor-darah-events.store') }}" method="POST">
                             @csrf
                             <div class="form-group mb-3">
                                 <label for="location_id" class="form-label">Lokasi</label>

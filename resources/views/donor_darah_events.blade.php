@@ -3,10 +3,10 @@
 @section('content')
     <div class="container">
         <div class="d-flex justify-content-start justify-content-md-between mb-3">
-            <h3 class="text-center"><strong>{{ __('Poundfit Events') }}</strong></h3>
-            <a href="{{ route('poundfit-events.create') }}" class="btn btn-primary mb-0">
+            <h3 class="text-center"><strong>{{ __('Donor Darah Events') }}</strong></h3>
+            <a href="{{ route('donor-darah-events.create') }}" class="btn btn-primary mb-0">
                 <i class="fas fa-plus"></i>
-                Create New Poundfit Event
+                Create New Donor Darah Event
             </a>
         </div>
 
@@ -33,21 +33,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($poundfit_events as $poundfit_event)
+                            @foreach ($donor_darah_events as $donor_darah_event)
                                 <tr>
                                     <td class="text-center">
                                         <div class="btn-group">
-                                            <a href="{{ route('poundfit-events.edit', $poundfit_event->id) }}"
+                                            <a href="{{ route('donor-darah-events.edit', $donor_darah_event->id) }}"
                                                 class="btn btn-info">
                                                 <i class="fas fa-pencil"></i>
                                             </a>
                                             <button class="btn btn-danger"
-                                                onclick="confirmDelete({{ $poundfit_event->id }});">
+                                                onclick="confirmDelete({{ $donor_darah_event->id }});">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </div>
-                                        <form id="delete-{{ $poundfit_event->id }}"
-                                            action="{{ route('poundfit-events.destroy', $poundfit_event->id) }}"
+                                        <form id="delete-{{ $donor_darah_event->id }}"
+                                            action="{{ route('donor-darah-events.destroy', $donor_darah_event->id) }}"
                                             method="post">
                                             @csrf
                                             @method('DELETE')
@@ -55,11 +55,11 @@
                                             <input type="submit" style="display: none;">
                                         </form>
                                     </td>
-                                    <td>{{ $poundfit_event->event_datetime }}</td>
-                                    <td>{{ $poundfit_event->location->name }}</td>
-                                    <td>{{ $poundfit_event->pic_whatsapp }}</td>
-                                    <td>{{ $poundfit_event->registrant_limit }}</td>
-                                    <td class="text-center">{!! $poundfit_event->is_published_badge !!}</td>
+                                    <td>{{ $donor_darah_event->event_datetime }}</td>
+                                    <td>{{ $donor_darah_event->location->name }}</td>
+                                    <td>{{ $donor_darah_event->pic_whatsapp }}</td>
+                                    <td>{{ $donor_darah_event->registrant_limit }}</td>
+                                    <td class="text-center">{!! $donor_darah_event->is_published_badge !!}</td>
                                 </tr>
                             @endforeach
                         </tbody>

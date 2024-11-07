@@ -13,7 +13,7 @@ class RegistrantController extends Controller
     public function index()
     {
         $registrants = Registrant::with([
-            'poundfit_event.location',
+            'donor_darah_event.location',
         ])->get();
 
         $data = [

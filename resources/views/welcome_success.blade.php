@@ -4,8 +4,10 @@
     <div class="container">
         <div class="row mb-3">
             <div class="col-12 d-flex justify-content-center my-3">
-                <img class="logo-poundfit" src="{{ asset('img/poundfit-with-bnetfit-logo.png') }}"
-                    alt="Poundfit with Bnetfit" />
+                <img class="logo-jlm" src="{{ asset('img/logo-jlm.png') }}" alt="JLM Logo" />
+            </div>
+            <div class="col-12 d-flex justify-content-center my-3">
+                <img class="logo-donordarah" src="{{ asset('img/logo-donor-darah.png') }}" alt="Logo Donor Darah" />
             </div>
         </div>
 
@@ -27,12 +29,12 @@
                         <div class="card-body text-center">
                             <h5>Hi, <strong>{{ $registrant->name }}</strong>,</h5>
                             <p>
-                                Terima kasih telah mendaftar di Poundfit with Bnetfit.
+                                Terima kasih telah mendaftar di Donor Darah with JLM.
                             </p>
                             <p>
                                 Acara akan dilakukan pada<br />
-                                {{ $poundfit_event->event_date_ind }} pukul {{ $poundfit_event->event_time_ind }} di
-                                {{ $poundfit_event->location->name }}.
+                                {{ $donor_darah_event->event_date_ind }} pukul {{ $donor_darah_event->event_time_ind }} di
+                                {{ $donor_darah_event->location->name }}.
                             </p>
 
                             <a href="{{ route('welcome.download', $hash_id) }}" class="btn btn-warning" target="_blank">

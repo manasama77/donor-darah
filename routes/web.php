@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\LocationController;
-use App\Http\Controllers\PoundfitEventController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RegistrantController;
-use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RegistrantController;
+use App\Http\Controllers\DonorDarahEventController;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::post('/', [WelcomeController::class, 'store'])->name('welcome.store');
@@ -26,13 +26,13 @@ Route::middleware('auth')->group(function () {
         'destroy' => 'locations.destroy',
     ]);
 
-    Route::resource('/poundfit-events', PoundfitEventController::class)->names([
-        'index'   => 'poundfit-events',
-        'create'  => 'poundfit-events.create',
-        'store'   => 'poundfit-events.store',
-        'edit'    => 'poundfit-events.edit',
-        'update'  => 'poundfit-events.update',
-        'destroy' => 'poundfit-events.destroy',
+    Route::resource('/donor-darah-events', DonorDarahEventController::class)->names([
+        'index'   => 'donor-darah-events',
+        'create'  => 'donor-darah-events.create',
+        'store'   => 'donor-darah-events.store',
+        'edit'    => 'donor-darah-events.edit',
+        'update'  => 'donor-darah-events.update',
+        'destroy' => 'donor-darah-events.destroy',
     ]);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

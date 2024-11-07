@@ -21,12 +21,21 @@
     }
 }
 
-body#poundfit {
-    background-color: #1467b0;
+body#donordarah {
+    background: url("../../public/img/background-mobile.png");
 
-    .logo-poundfit {
+    #app {
+        min-height: 93vh;
+    }
+
+    .logo-jlm {
         width: 100%;
         max-width: 250px;
+    }
+
+    .logo-donordarah {
+        width: 100%;
+        max-width: 350px;
     }
 }
 

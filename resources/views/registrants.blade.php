@@ -15,14 +15,15 @@
                                 <th>Barcode</th>
                                 <th>Nama</th>
                                 <th>Jenis Kelamin</th>
+                                <th>Tanggal Lahir</th>
                                 <th>Email</th>
                                 <th>No WA</th>
                                 <th>Kota</th>
                                 <th>No Kontak Darurat</th>
                                 <th>Nama Kontak Darurat</th>
-                                <th class="text-center">Membawa Ripstix</th>
-                                <th>Info Poundfit</th>
-                                <th>Info Poundfit Lainnya</th>
+                                <th class="text-center">Donor < 3bln</th>
+                                <th>Info Donor Darah</th>
+                                <th>Info Donor Darah Lainnya</th>
                                 <th class="text-center">Kehadiran</th>
                                 <th>Lokasi Acara</th>
                                 <th>Tanggal Acara</th>
@@ -39,17 +40,20 @@
                                     <td>{{ $registrant->barcode }}</td>
                                     <td>{{ $registrant->name }}</td>
                                     <td>{{ $registrant->gender }}</td>
+                                    <td>
+                                        {{ $registrant->dob }} ({{ $registrant->age }} thn)
+                                    </td>
                                     <td>{{ $registrant->email }}</td>
                                     <td>{{ $registrant->phone }}</td>
                                     <td>{{ $registrant->city }}</td>
                                     <td>{{ $registrant->phone_emergency }}</td>
                                     <td>{{ $registrant->name_emergency }}</td>
-                                    <td class="text-center">{!! $registrant->bring_ripstix_badge !!}</td>
-                                    <td>{{ $registrant->poundfit_info }}</td>
-                                    <td>{{ $registrant->poundfit_info_etc }}</td>
-                                    <td class="text-center">{!! $registrant->are_attending_badge !!}</td>
-                                    <td>{{ $registrant->poundfit_event->location->name }}</td>
-                                    <td>{{ $registrant->poundfit_event->event_datetime }}</td>
+                                    <td class="text-center">{!! $registrant->previous_donation_badge !!}</td>
+                                    <td>{{ $registrant->donor_darah_info }}</td>
+                                    <td>{{ $registrant->donor_darah_info_etc }}</td>
+                                    <td class="text-center">{!! $registrant->attending_badge !!}</td>
+                                    <td>{{ $registrant->donor_darah_event->location->name }}</td>
+                                    <td>{{ $registrant->donor_darah_event->event_datetime }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

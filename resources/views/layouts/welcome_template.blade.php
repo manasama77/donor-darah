@@ -5,15 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description"
-        content="Poundfit with Bnetfit, adalah kegiatan senam poundfit yang diselenggarakan oleh Bnetfit." />
+        content="{{ config('app.name') }}, adalah kegiatan senam poundfit yang diselenggarakan oleh Bnetfit." />
     <meta name="author" content="Shella" />
 
     <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
-    <meta property="og:site_name" content="Poundfit with Bnetfit" /> <!-- website name -->
+    <meta property="og:site_name" content="{{ config('app.name') }}" /> <!-- website name -->
     <meta property="og:site" content="{{ route('welcome') }}" /> <!-- website link -->
-    <meta property="og:title" content="Poundfit with Bnetfit" /> <!-- title shown in the actual shared post -->
+    <meta property="og:title" content="{{ config('app.name') }}" /> <!-- title shown in the actual shared post -->
     <meta property="og:description"
-        content="Poundfit with Bnetfit, adalah kegiatan senam poundfit yang diselenggarakan oleh Bnetfit." />
+        content="{{ config('app.name') }}, adalah kegiatan donor darah yang diselenggarakan oleh JLM." />
     <!-- description shown in the actual shared post -->
     <meta property="og:image" content="{{ asset('img/android-chrome-256x256.png') }}" />
     <!-- image link, make sure it's jpg -->
@@ -27,8 +27,8 @@
     <link rel="manifest" href="{{ asset('img/site.webmanifest') }}">
     <link rel="mask-icon" href="{{ asset('img/safari-pinned-tab.svg') }}" color="#1467b0">
     <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
-    <meta name="apple-mobile-web-app-title" content="Poundfit with Bnetfit">
-    <meta name="application-name" content="Poundfit with Bnetfit">
+    <meta name="apple-mobile-web-app-title" content="{{ config('app.name') }}">
+    <meta name="application-name" content="{{ config('app.name') }}">
     <meta name="msapplication-TileColor" content="#1467b0">
     <meta name="msapplication-config" content="{{ asset('img/browserconfig.xml') }}">
     <meta name="theme-color" content="#1467b0">
@@ -51,7 +51,7 @@
     @stack('styles')
 </head>
 
-<body id="poundfit">
+<body id="donordarah">
     <div id="app">
         @yield('content')
     </div>
@@ -59,25 +59,31 @@
     <footer class="footer py-3 mt-auto">
         <div class="d-flex justify-content-between container">
             <div class="d-flex align-items-center">
-                <a href="https://bnetfit.id/" target="_blank"
+                <a href="https://jlm.net.id/" target="_blank"
                     class="me-2 mb-md-0 text-muted text-decoration-none lh-1 mb-3">
-                    <img src="{{ asset('img/logo_white.png') }}" alt="Bnetfit Logo" class="img-fluid"
+                    <img src="{{ asset('img/logo-jlm-1.png') }}" alt="JLM Logo" class="img-fluid"
                         style="max-width: 70px;" />
                 </a>
-                <span class="h6 mb-0 text-white" style="padding-top: 4px;">Copyright &copy; {{ date('Y') }}
-                    Bnetfit</span>
+                <span class="h6 mb-0" style="padding-top: 4px;">Copyright &copy; {{ date('Y') }}
+                    PT Jala Lintas Media</span>
             </div>
-            <div class="h4 d-flex align-items-center gap-2 mb-0 text-white" style="padding-top: 4px;">
-                <a href="https://bnetfit.id/" target="_blank" class="text-decoration-none lh-1 text-white">
+            <div class="h4 d-flex align-items-center gap-2 mb-0" style="padding-top: 4px;">
+                <a href="https://jlm.net.id/" target="_blank" class="text-decoration-none lh-1 ">
                     <i class="fas fa-fw fa-globe-asia"></i>
                 </a>
-                <a href="https://bnetfit.id/" target="_blank" class="text-decoration-none lh-1 text-white">
+                <a href="https://www.facebook.com/JLMISP" target="_blank" class="text-decoration-none lh-1 ">
                     <i class="fab fa-fw fa-facebook"></i>
                 </a>
-                <a href="https://bnetfit.id/" target="_blank" class="text-decoration-none lh-1 text-white">
+                <a href="https://www.instagram.com/jalalintasmedia.id" target="_blank"
+                    class="text-decoration-none lh-1 ">
                     <i class="fab fa-fw fa-instagram"></i>
                 </a>
-                <a href="https://bnetfit.id/" target="_blank" class="text-decoration-none lh-1 text-white">
+                <a href="https://www.linkedin.com/company/pt-jala-lintas-media" target="_blank"
+                    class="text-decoration-none lh-1 ">
+                    <i class="fab fa-fw fa-linkedin"></i>
+                </a>
+                <a href="https://www.youtube.com/@jalalintasmediagroup" target="_blank"
+                    class="text-decoration-none lh-1 ">
                     <i class="fab fa-fw fa-youtube"></i>
                 </a>
             </div>
