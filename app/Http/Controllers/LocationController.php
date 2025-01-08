@@ -101,8 +101,14 @@ class LocationController extends Controller
      */
     public function destroy(Location $location)
     {
-        $location->registrants()->delete();
-        $location->donor_darah_events()->delete();
+        if ($location->registrants) {
+            $location->registrants()->delete();
+        }
+
+        if ($location->donor_darah_events) {
+            $location->donor_darah_events()->delete();
+        }
+
         $location->delete();
 
         return redirect()->route('locations')->with('success', 'Location deleted successfully.');
