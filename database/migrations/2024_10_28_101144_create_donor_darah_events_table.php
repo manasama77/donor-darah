@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('donor_darah_events', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Location::class);
+            $table->foreignIdFor(Location::class)->constrained()->cascadeOnDelete();
             $table->dateTime('event_datetime');
             $table->string('pic_whatsapp');
             $table->boolean('is_published')->default(false);

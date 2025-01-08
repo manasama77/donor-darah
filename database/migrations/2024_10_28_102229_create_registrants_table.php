@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('registrants', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(DonorDarahEvent::class);
+            $table->foreignIdFor(DonorDarahEvent::class)->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->enum('gender', ['male', 'female']);
             $table->date('dob');
