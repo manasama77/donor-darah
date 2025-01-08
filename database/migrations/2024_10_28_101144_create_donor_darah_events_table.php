@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('poundfit_events');
+        Schema::dropIfExists('donor_darah_events');
     }
 };

@@ -8,7 +8,6 @@ use Milon\Barcode\DNS2D;
 use App\Models\Registrant;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Models\PoundfitEvent;
 use Illuminate\Support\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
@@ -39,12 +38,12 @@ class WelcomeController extends Controller
 
     public function index()
     {
-        $poundfit_event = DonorDarahEvent::with([
+        $dondar_event = DonorDarahEvent::with([
             'location',
         ])->where('is_published', true)->first();
 
-        $max_participants = $poundfit_event->registrant_limit;
-        $current_participants = $poundfit_event->registrants()->count();
+        $max_participants     = $dondar_event->registrant_limit;
+        $current_participants = $dondar_event->registrants()->count();
 
         $exceed = false;
         if ($current_participants >= $max_participants) {
@@ -52,7 +51,7 @@ class WelcomeController extends Controller
         }
 
         $current  = Carbon::now();
-        $event_dt = Carbon::parse($poundfit_event->event_datetime);
+        $event_dt = Carbon::parse($dondar_event->event_datetime);
 
         $closed = false;
         if ($current->gt($event_dt)) {
@@ -60,9 +59,9 @@ class WelcomeController extends Controller
         }
 
         $data = [
-            'poundfit_event' => $poundfit_event,
-            'exceed'         => $exceed,
-            'closed'         => $closed,
+            'dondar_event' => $dondar_event,
+            'exceed'       => $exceed,
+            'closed'       => $closed,
         ];
 
         return view('welcome', $data);

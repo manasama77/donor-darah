@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        @if (!$poundfit_event)
+        @if (!$dondar_event)
             <div class="row mb-3" style="min-height: 48vh;">
                 <div class="col-12 col-md-8 mx-auto">
                     <div class="alert alert-danger text-center">
@@ -70,17 +70,17 @@
                                                 <tbody>
                                                     <tr>
                                                         <td><strong>Hari/Tanggal</strong></td>
-                                                        <td>{{ $poundfit_event->event_date_ind }}</td>
+                                                        <td>{{ $dondar_event->event_date_ind }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>Waktu</strong></td>
-                                                        <td>{{ $poundfit_event->event_time_ind }}</td>
+                                                        <td>{{ $dondar_event->event_time_ind }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>Lokasi</strong></td>
                                                         <td>
-                                                            {{ $poundfit_event->location->name }}<br />
-                                                            {{ $poundfit_event->location->address }}
+                                                            {{ $dondar_event->location->name }}<br />
+                                                            {{ $dondar_event->location->address }}
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -98,7 +98,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-7">
-                                    {!! $poundfit_event->location->gmap_embed_url !!}
+                                    {!! $dondar_event->location->gmap_embed_url !!}
                                 </div>
                             </div>
                         </div>

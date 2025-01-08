@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description"
-        content="{{ config('app.name') }}, adalah kegiatan senam poundfit yang diselenggarakan oleh Bnetfit." />
+        content="{{ config('app.name') }}, adalah kegiatan senam Donor Darah yang diselenggarakan oleh JLM." />
     <meta name="author" content="Shella" />
 
     <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->

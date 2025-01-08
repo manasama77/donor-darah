@@ -16,9 +16,9 @@ class Location extends Model
         'gmap_embed_url',
     ];
 
-    public function poundfit_events()
+    public function donor_darah_events()
     {
-        return $this->hasMany(PoundfitEvent::class);
+        return $this->hasMany(DonorDarahEvent::class);
     }
 
     public function getGmapEmbedUrlShortAttribute()
