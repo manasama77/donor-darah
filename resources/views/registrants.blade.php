@@ -33,9 +33,22 @@
                             @foreach ($registrants as $registrant)
                                 <tr>
                                     <td class="text-center">
-                                        <a href="#" class="btn btn-warning">
-                                            <i class="fas fa-file-download"></i>
-                                        </a>
+                                        <div class="btn-group">
+                                            <a href="{{ route('welcome.download', $registrant->hash_id) }}" target="_blank"
+                                                class="btn btn-warning">
+                                                <i class="fas fa-file-download"></i>
+                                            </a>
+                                            <button class="btn btn-danger" onclick="confirmDelete({{ $registrant->id }});">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                        <form id="delete-{{ $registrant->id }}"
+                                            action="{{ route('registrants.destroy', $registrant) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <input type="submit" style="display: none;">
+                                        </form>
                                     </td>
                                     <td>{{ $registrant->barcode }}</td>
                                     <td>{{ $registrant->name }}</td>
@@ -51,7 +64,7 @@
                                     <td class="text-center">{!! $registrant->previous_donation_badge !!}</td>
                                     <td>{{ $registrant->donor_darah_info }}</td>
                                     <td>{{ $registrant->donor_darah_info_etc }}</td>
-                                    <td class="text-center">{!! $registrant->attending_badge !!}</td>
+                                    <td class="text-center">{!! $registrant->are_attending_badge !!}</td>
                                     <td>{{ $registrant->donor_darah_event->location->name }}</td>
                                     <td>{{ $registrant->donor_darah_event->event_datetime }}</td>
                                 </tr>
@@ -90,5 +103,11 @@
                 [1, "desc"]
             ]
         });
+
+        function confirmDelete(id) {
+            if (confirm('Apakah kamu yakin akan menghapus data ini?')) {
+                document.getElementById('delete-' + id).submit();
+            }
+        }
     </script>
 @endpush

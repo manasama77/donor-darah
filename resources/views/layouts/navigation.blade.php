@@ -26,6 +26,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('scan') }}">
+                        <strong>
+                            {{ __('Scan') }}
+                        </strong>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('locations') }}">
                         <strong>
                             {{ __('Location') }}

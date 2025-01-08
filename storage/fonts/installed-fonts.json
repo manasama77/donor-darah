@@ -1,9 +1,9 @@
 {
     "poppins": {
-        "normal": "C:\\laragon\\www\\donordarah\\storage\\fonts\/poppins_normal_239113512e99fe12d9d6a2e4dba34f77",
-        "500": "C:\\laragon\\www\\donordarah\\storage\\fonts\/poppins_500_44f392277edcb911df34ec7689c8f6e8",
-        "600": "C:\\laragon\\www\\donordarah\\storage\\fonts\/poppins_600_4cca53050aa8a25c249347ddec7cfd5b",
-        "bold": "C:\\laragon\\www\\donordarah\\storage\\fonts\/poppins_bold_83d2da34a2f079f7fad4c79aa6d80e2c",
-        "900": "poppins_900_695a8e074f0e254f532310f7a5d3d59a"
+        "normal": "C:\\laragon\\www\\donor-darah\\storage\\fonts\/poppins_normal_351e0bc8deae8702872b7f3bdac21147",
+        "500": "C:\\laragon\\www\\donor-darah\\storage\\fonts\/poppins_500_5aabc2d2663f0f52af7561341589920a",
+        "600": "C:\\laragon\\www\\donor-darah\\storage\\fonts\/poppins_600_f6f9279ba5c9514554c606face7213e2",
+        "bold": "C:\\laragon\\www\\donor-darah\\storage\\fonts\/poppins_bold_a889e8a5d10a6fb632996517ab8c9a10",
+        "900": "poppins_900_82854f1aeec65e255016663461c2b65f"
     }
 }

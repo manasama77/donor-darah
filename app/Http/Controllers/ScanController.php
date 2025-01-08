@@ -3,24 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Registrant;
+use Exception;
 use Illuminate\Http\Request;
 
-class RegistrantController extends Controller
+class ScanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $registrants = Registrant::with([
-            'donor_darah_event.location',
-        ])->get();
-
-        $data = [
-            'registrants' => $registrants,
-        ];
-
-        return view('registrants', $data);
+        return view('scan');
     }
 
     /**
@@ -68,8 +61,38 @@ class RegistrantController extends Controller
      */
     public function destroy(Registrant $registrant)
     {
-        $registrant->delete();
+        //
+    }
 
-        return redirect()->route('registrants')->with('success', 'Pendaftar berhasil dihapus.');
+    public function cek(Request $request)
+    {
+        try {
+            $request->validate([
+                'barcode' => ['required', 'min:4'],
+            ]);
+
+            $check = Registrant::where('barcode', $request->barcode)->first();
+
+            if ($check) {
+                $check->update([
+                    'are_attending' => true
+                ]);
+
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Check in berhasil',
+                ]);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Check in gagal, data tidak ditemukan',
+                ]);
+            }
+        } catch (Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage(),
+            ]);
+        }
     }
 }

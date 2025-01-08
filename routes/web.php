@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ScanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\LocationController;
@@ -16,6 +17,7 @@ Route::get('/download/{hash_id}', [WelcomeController::class, 'download'])->name(
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/registrants', [RegistrantController::class, 'index'])->name('registrants');
+    Route::delete('/registrants/{registrant}', [RegistrantController::class, 'destroy'])->name('registrants.destroy');
 
     Route::resource('/locations', LocationController::class)->names([
         'index'   => 'locations',
@@ -34,6 +36,9 @@ Route::middleware('auth')->group(function () {
         'update'  => 'donor-darah-events.update',
         'destroy' => 'donor-darah-events.destroy',
     ]);
+
+    Route::get('/scan', [ScanController::class, 'index'])->name('scan');
+    Route::post('/scan/proses', [ScanController::class, 'cek'])->name('scan.proses');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -131,6 +131,11 @@ class DonorDarahEventController extends Controller
             'registrant_limit.integer'  => 'Registrant limit is invalid.',
         ]);
 
+
+        $request->merge([
+            'event_datetime' => $request->event_date . ' ' . $request->event_time,
+        ]);
+
         $donorDarahEvent->update($request->all());
 
         return redirect()->route('donor-darah-events')->with('success', 'Donor Darah Event updated successfully.');

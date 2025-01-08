@@ -23,11 +23,35 @@
 
         @if (!$poundfit_event)
             <div class="row mb-3" style="min-height: 48vh;">
-                <div class="col-12">
+                <div class="col-12 col-md-8 mx-auto">
                     <div class="alert alert-danger text-center">
                         <h4 class="mb-0">
                             <strong>Peringatan!</strong><br />
                             Acara Donor Darah with JLM belum dijadwalkan
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        @elseif($exceed === true)
+            <div class="row mb-3" style="min-height: 48vh;">
+                <div class="col-12 col-md-8 mx-auto">
+                    <div class="alert alert-danger text-center">
+                        <h4 class="mb-0">
+                            <strong>Peringatan!</strong><br />
+                            Kuota Pendaftaran untuk Acara Donor Darah with JLM sudah terpenuhi.<br />Silakan coba lagi di
+                            lain
+                            waktu.
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        @elseif($closed === true)
+            <div class="row mb-3" style="min-height: 48vh;">
+                <div class="col-12 col-md-8 mx-auto">
+                    <div class="alert alert-danger text-center">
+                        <h4 class="mb-0">
+                            <strong>Peringatan!</strong><br />
+                            Acara Donor Darah with JLM sudah ditutup.<br />Silakan coba lagi di lain waktu.
                         </h4>
                     </div>
                 </div>
@@ -308,9 +332,6 @@
                                 <button type="submit" class="btn btn-primary w-100">
                                     <i class="fas fa-paper-plane"></i> Daftar Sekarang
                                 </button>
-                                <a href="#" class="btn btn-warning w-100 mt-2" role="button">
-                                    <i class="fas fa-search"></i> Cek Status Pendaftaran
-                                </a>
                             </div>
                         </div>
                     </form>

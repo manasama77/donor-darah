@@ -31,42 +31,35 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if ($locations->count() == 0)
+                            @foreach ($locations as $location)
                                 <tr>
-                                    <td class="text-center" colspan="4">Tidak ada data</td>
-                                </tr>
-                            @else
-                                @foreach ($locations as $location)
-                                    <tr>
-                                        <td class="text-center">
-                                            <div class="btn-group">
-                                                <a href="{{ route('locations.edit', $location->id) }}" class="btn btn-info">
-                                                    <i class="fas fa-pencil"></i>
-                                                </a>
-                                                <button class="btn btn-danger"
-                                                    onclick="confirmDelete({{ $location->id }});">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </div>
-                                            <form id="delete-{{ $location->id }}"
-                                                action="{{ route('locations.destroy', $location->id) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-
-                                                <input type="submit" style="display: none;">
-                                            </form>
-                                        </td>
-                                        <td>{{ $location->name }}</td>
-                                        <td>{{ $location->address }}</td>
-                                        <td class="text-center">
-                                            <button type="button" class="btn btn-primary btn-sm"
-                                                onclick="modalGmap('{{ $location->gmap_embed_url }}')">
-                                                <i class="fas fa-map-marked-alt"></i>
+                                    <td class="text-center">
+                                        <div class="btn-group">
+                                            <a href="{{ route('locations.edit', $location->id) }}" class="btn btn-info">
+                                                <i class="fas fa-pencil"></i>
+                                            </a>
+                                            <button class="btn btn-danger" onclick="confirmDelete({{ $location->id }});">
+                                                <i class="fas fa-trash"></i>
                                             </button>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            @endif
+                                        </div>
+                                        <form id="delete-{{ $location->id }}"
+                                            action="{{ route('locations.destroy', $location->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <input type="submit" style="display: none;">
+                                        </form>
+                                    </td>
+                                    <td>{{ $location->name }}</td>
+                                    <td>{{ $location->address }}</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-primary btn-sm"
+                                            onclick="modalGmap('{{ $location->gmap_embed_url }}')">
+                                            <i class="fas fa-map-marked-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

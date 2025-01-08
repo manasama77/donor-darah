@@ -4,7 +4,9 @@
     <div class="container">
         <div class="row mb-3">
             <div class="col-12 d-flex justify-content-center my-3">
-                <img class="logo-jlm" src="{{ asset('img/logo-jlm.png') }}" alt="JLM Logo" />
+                <a href="{{ route('welcome') }}">
+                    <img class="logo-jlm" src="{{ asset('img/logo-jlm.png') }}" alt="JLM Logo" />
+                </a>
             </div>
             <div class="col-12 d-flex justify-content-center my-3">
                 <img class="logo-donordarah" src="{{ asset('img/logo-donor-darah.png') }}" alt="Logo Donor Darah" />

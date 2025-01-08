@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Support\Carbon;
+use Vinkla\Hashids\Facades\Hashids;
 use Illuminate\Database\Eloquent\Model;
 
 class Registrant extends Model
@@ -46,5 +47,11 @@ class Registrant extends Model
     public function getAgeAttribute()
     {
         return Carbon::parse($this->attributes['dob'])->age;
+    }
+
+    public function getHashIdAttribute()
+    {
+        $hash_id = Hashids::encode($this->id);
+        return $hash_id;
     }
 }

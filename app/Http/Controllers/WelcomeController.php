@@ -43,8 +43,26 @@ class WelcomeController extends Controller
             'location',
         ])->where('is_published', true)->first();
 
+        $max_participants = $poundfit_event->registrant_limit;
+        $current_participants = $poundfit_event->registrants()->count();
+
+        $exceed = false;
+        if ($current_participants >= $max_participants) {
+            $exceed = true;
+        }
+
+        $current  = Carbon::now();
+        $event_dt = Carbon::parse($poundfit_event->event_datetime);
+
+        $closed = false;
+        if ($current->gt($event_dt)) {
+            $closed = true;
+        }
+
         $data = [
             'poundfit_event' => $poundfit_event,
+            'exceed'         => $exceed,
+            'closed'         => $closed,
         ];
 
         return view('welcome', $data);
@@ -119,6 +137,13 @@ class WelcomeController extends Controller
                 return redirect()->back();
             }
 
+            $max_participants     = $donor_darah_event->registrant_limit;
+            $current_participants = $donor_darah_event->registrants()->count();
+
+            if ($current_participants > $max_participants) {
+                return redirect()->back()->withErrors('Jumlah peserta telah melewati batas.')->withInput();
+            }
+
             $random_number = $this->generate_random_number();
             $eticket       = $this->generate_eticket($random_number, $request->name, $donor_darah_event->event_date_ind, $donor_darah_event->event_time_ind, $donor_darah_event->location->name);
 
@@ -138,7 +163,7 @@ class WelcomeController extends Controller
             $registrant->previous_donation    = $request->previous_donation;
             $registrant->donor_darah_info     = $request->donor_darah_info;
             $registrant->donor_darah_info_etc = $request->donor_darah_info_etc;
-            $registrant->are_attending        = 0;
+            $registrant->are_attending        = false;
             $registrant->barcode              = $random_number;
             $registrant->eticket              = $eticket;
             $registrant->save();
@@ -152,7 +177,7 @@ class WelcomeController extends Controller
             return redirect()->back()->withErrors($e->errors())->withInput();
         } catch (Exception $e) {
             DB::rollBack();
-            return redirect()->back()->with('error', $e->getMessage());
+            return redirect()->back()->withErrors($e->getMessage());
         }
     }
 
@@ -216,7 +241,7 @@ class WelcomeController extends Controller
         $custom_paper = [0, 0, 275, 460];
         $pdf          = Pdf::loadView('pdf.e_ticket', $data)->setPaper($custom_paper);
         // render on browser $pdf
-        return $pdf->stream('test.pdf', array("Attachment" => false));
+        // return $pdf->stream('test.pdf', array("Attachment" => false));
 
         $date = Carbon::parse($tanggal_event)->format('Y-m-d');
 
