@@ -21,6 +21,11 @@ class Location extends Model
         return $this->hasMany(DonorDarahEvent::class);
     }
 
+    public function registrants()
+    {
+        return $this->hasManyThrough(Registrant::class, DonorDarahEvent::class);
+    }
+
     public function getGmapEmbedUrlShortAttribute()
     {
         return substr($this->gmap_embed_url, 0, 20) . '...';

@@ -40,22 +40,30 @@ class WelcomeController extends Controller
     {
         $dondar_event = DonorDarahEvent::with([
             'location',
+            'registrants',
         ])->where('is_published', true)->first();
 
-        $max_participants     = $dondar_event->registrant_limit;
-        $current_participants = $dondar_event->registrants()->count();
+        $max_participants     = 0;
+        $current_participants = 0;
+        $exceed               = false;
+        $closed               = false;
 
-        $exceed = false;
-        if ($current_participants >= $max_participants) {
-            $exceed = true;
-        }
+        if ($dondar_event) {
+            $max_participants = $dondar_event->registrant_limit ?? 0;
 
-        $current  = Carbon::now();
-        $event_dt = Carbon::parse($dondar_event->event_datetime);
+            if ($dondar_event->registrants()->count() > 0) {
+                $current_participants = $dondar_event->registrants()->count();
+            }
 
-        $closed = false;
-        if ($current->gt($event_dt)) {
-            $closed = true;
+            if ($current_participants >= $max_participants) {
+                $exceed = true;
+            }
+
+            $current  = Carbon::now();
+            $event_dt = Carbon::parse($dondar_event->event_datetime);
+            if ($current->gt($event_dt)) {
+                $closed = true;
+            }
         }
 
         $data = [

@@ -146,6 +146,7 @@ class DonorDarahEventController extends Controller
      */
     public function destroy(DonorDarahEvent $donorDarahEvent)
     {
+        $donorDarahEvent->registrants()->delete();
         $donorDarahEvent->delete();
 
         return redirect()->route('donor-darah-events')->with('success', 'Donor Darah Event deleted successfully.');
