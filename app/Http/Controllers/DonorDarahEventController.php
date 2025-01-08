@@ -97,7 +97,7 @@ class DonorDarahEventController extends Controller
         $locations = Location::get();
 
         $data = [
-            'locations'      => $locations,
+            'locations'         => $locations,
             'donor_darah_event' => $donorDarahEvent,
         ];
 
@@ -130,7 +130,6 @@ class DonorDarahEventController extends Controller
             'registrant_limit.required' => 'Registrant limit is required.',
             'registrant_limit.integer'  => 'Registrant limit is invalid.',
         ]);
-
 
         $request->merge([
             'event_datetime' => $request->event_date . ' ' . $request->event_time,
